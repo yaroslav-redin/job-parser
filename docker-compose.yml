@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # 1. База данных PostgreSQL с поддержкой векторов (для ML)
+  db:
+    image: ankane/pgvector:latest
+    container_name: job_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: job_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # 2. Redis (кэш и задачи для парсера)
+  redis:
+    image: redis:alpine
+    container_name: job_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  # 3. Python бэкенд
+  backend:
+    build: ./backend
+    container_name: job_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://admin:password@db:5432/job_db
+      - REDIS_URL=redis://redis:6379/0
+
+  # 4. Vue.js фронтенд
+  frontend:
+    build: ./frontend
+    container_name: job_frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

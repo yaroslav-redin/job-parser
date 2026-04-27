@@ -1,0 +1,25 @@
+# Базы данных и кэш
+pgdata/
+redis_data/
+uploads/
+
+# Python
+backend/venv/
+backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Node.js / Vue
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
+
+# Среды и ключи
+.env
+.env.local
+
+# Системные файлы
+.DS_Store
+Thumbs.db

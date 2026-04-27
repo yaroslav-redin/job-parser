@@ -1,0 +1,53 @@
+/* Базовые переменные (Светлая тема) */
+:root {
+  --bg-main: #f9fafb;
+  --bg-card: #ffffff;
+  --bg-header: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --primary: #8b5cf6;       /* Тот самый фиолетовый */
+  --primary-hover: #7c3aed;
+  --border-color: #e5e7eb;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
+}
+
+/* Переменные для Темной темы (активируется классом .dark на теге html) */
+html.dark {
+  --bg-main: #111827;
+  --bg-card: #1f2937;
+  --bg-header: #1f2937;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --primary: #a78bfa;
+  --primary-hover: #8b5cf6;
+  --border-color: #374151;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+/* Глобальный сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color var(--transition), color var(--transition);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}

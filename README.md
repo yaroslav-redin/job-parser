@@ -29,4 +29,3 @@ docker-compose up -d --build
 ## 🛠 Архитектура (Стек)
 * **Frontend:** Vue 3 (Composition API), Pinia, Vue Router, Tailwind/Чистый CSS.
 * **Backend:** Python, FastAPI, SQLAlchemy, PostgreSQL (+ pgvector), Redis.
-```

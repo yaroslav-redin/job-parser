@@ -24,8 +24,8 @@ docker-compose up -d --build
 * **Frontend (САМ САЙТ):** [http://localhost:5173](http://localhost:5173)
 * **Backend API (БЭКЕНД с апи-запросами):** [http://localhost:8000/docs](http://localhost:8000/docs)
 
-*Примечание: При первом запуске скачивание образов (PostgreSQL, Redis, Python, Node) может занять 3-5 минут в зависимости от скорости интернета.*
+*Примечание: При первом запуске скачивание образов (PostgreSQL, Redis, Python, Node) может занять 5-30 минут в зависимости от скорости интернета.*
 
 ## 🛠 Архитектура (Стек)
-* **Frontend:** Vue 3 (Composition API), Pinia, Vue Router, Tailwind/Чистый CSS.
+* **Frontend:** Vue 3 (Composition API), Pinia, Vue Router.
 * **Backend:** Python, FastAPI, SQLAlchemy, PostgreSQL (+ pgvector), Redis.
